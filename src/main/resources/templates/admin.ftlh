@@ -76,24 +76,20 @@
             margin-top: 50px;
             margin-right: 0px;
         }
-        .user-name{
-            float: right;
-        }
+
     </style>
 </head>
 <body>
 <div class="user-icon">&#128100;</div>
-<div class="user-name">
+<div class="login-register-buttons">
+    <a href="/login_page">Вход</a>
+    <a href="/register">Регистрация</a>
 </div>
-<div class="user-menu">
-    <a href="/mybookings/">My bookings</a>
-</div>
-
 <h1>Welcome to ReservEase</h1>
 <hr>
 
 <form action="/home" method="get">
-    Search by Restaurant Name: <input type="text" name="name">
+    Search by Restaurant Name(admin): <input type="text" name="name">
     <input type="submit" value="Search">
 </form>
 
@@ -101,7 +97,7 @@
     <#list restaurants as restaurant>
         <div class="restaurant">
             <p>
-                <strong> ${restaurant.name} </strong>  | ${restaurant.description} | <a href="/restaurant/${restaurant.restaurant_id}">Details...</a>
+                <strong> ${restaurant.name} </strong>  | ${restaurant.description} | <a href="/admin/restaurant/${restaurant.restaurant_id}">Details...</a>
             </p>
         </div>
     </#list>

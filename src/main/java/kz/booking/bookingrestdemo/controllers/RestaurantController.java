@@ -19,38 +19,30 @@ import java.io.IOException;
 public class RestaurantController {
     private final RestaurantService restaurantService;
     private final UserService userService;
-    @GetMapping("/home")
+    @GetMapping("/user/home")
     public String restaurant(@RequestParam(name = "name", required = false)String name,  Model model){
         model.addAttribute("restaurants",restaurantService.getAllRestaurants(name));
     return "home";
     }
-    @GetMapping("/home/logged")
-    public String restaurants(@RequestParam(name = "restaurants", required = false)String name,@RequestParam(name = "users", required = false) String username,  Model model){
+    @GetMapping("/admin/home")
+    public String restaurants(@RequestParam(name = "name", required = false)String name,  Model model){
         model.addAttribute("restaurants",restaurantService.getAllRestaurants(name));
-        model.addAttribute("users",userService.findByUserName(username));
-        return "home-logged";
+        return "admin";
     }
-    @GetMapping("/restaurant/nolog/{restaurant_id}")
-    public String restaurantNoLogInfo(@PathVariable Long restaurant_id, Model model){
-        Restaurant restaurant = restaurantService.getRestaurantById(restaurant_id);
-        model.addAttribute("restaurant",restaurant);
-        model.addAttribute("images",restaurant.getImages());
-        return "restaurant-info-nolog";
-    }
-    @GetMapping("/restaurant/{restaurant_id}")
+    @GetMapping("/user/restaurant/{restaurant_id}")
     public String restaurantInfo(@PathVariable Long restaurant_id, Model model){
         Restaurant restaurant = restaurantService.getRestaurantById(restaurant_id);
         model.addAttribute("restaurant",restaurant);
         model.addAttribute("images",restaurant.getImages());
         return "restaurant-info";
     }
-    @PostMapping("/restaurant/create")
+    @PostMapping("/user/restaurant/create")
     public String createRestaurant(@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,
                                    @RequestParam("file3")MultipartFile file3, Restaurant restaurant) throws IOException{
         restaurantService.createRestaurant(restaurant,file1,file2,file3);
         return "home";
     }
-    @PostMapping("/restaurant/delete/{id}")
+    @PostMapping("/user/restaurant/delete/{id}")
     public String deleteRestaurant(@PathVariable Long id){
         restaurantService.removeRestaurantById(id);
         return "home";

@@ -7,7 +7,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 @Configuration
 public class Config{
-    static final String from = "reservease7@gmail.com";
+    static final String from = "easereserve7@gmail.com";
     static final String host = "smtp.gmail.com";
     static final String port = "465";
     public void send(String to, String subject, String text){
@@ -22,7 +22,7 @@ public class Config{
                 new Authenticator(){
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication(){
-                        return new PasswordAuthentication(from,"wbbccfsswmjfhtbu");
+                        return new PasswordAuthentication(from,"pnrgbfsavwmsqcoy");
                     }
                 }
         );

@@ -67,7 +67,7 @@
 <b>Menu:</b> ${restaurant.menu}</br>
 <b>Contacts:</b> ${restaurant.contacts}</br>
 <hr>
-<form action="/reservation/reserve" method="post">
+<form action="/user/reservation/reserve" method="post">
     <label for="people_for_reservation">People:</label>
     <input type="number" name="people_for_reservation" required>
 
@@ -76,8 +76,8 @@
 
     <input type="hidden" name="restaurant_id" value="${restaurant.restaurant_id}">
     <input type="hidden" name="restaurant_name" value="${restaurant.name}">
-    <label for="user_email">Your email:</label>
-    <input type="email" name="user_email" required>
+    <label for="email">Your email:</label>
+    <input type="email" name="email" required>
 
     <input type="submit" value="Book this place">
 </form>

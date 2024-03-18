@@ -41,11 +41,11 @@ public class ReservationController {
         reservationNotifier.onApplicationEvent(new ReservationEvent(this, reservation.getUser_email(), "Your table is reserved at "+ reservation.getReservationDateTime().toString()
                         + " in "+ reservation.getRestaurant_name() + " for " + reservation.getPeople_for_reservation() + " people"));
         reservationService.addBooking(newReservation);
-        return "home-logged";
+        return "home";
     }
     @PostMapping("/reservation/cancel/{reservation_id}")
     public String cancelBooking(@PathVariable Long reservation_id){
         reservationService.cancelBooking(reservation_id);
-        return "home-logged";
+        return "home";
     }
 }

@@ -97,7 +97,7 @@
     <#list restaurants as restaurant>
         <div class="restaurant">
             <p>
-                <strong> ${restaurant.name} </strong>  | ${restaurant.description} | <a href="/restaurant/nolog/${restaurant.restaurant_id}">Details...</a>
+                <strong> ${restaurant.name} </strong>  | ${restaurant.description} | <a href="/user/restaurant/${restaurant.restaurant_id}">Details...</a>
             </p>
         </div>
     </#list>
