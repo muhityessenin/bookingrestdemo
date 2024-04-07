@@ -2,6 +2,7 @@ package kz.booking.bookingrestdemo.config;
 
 import kz.booking.bookingrestdemo.services.PersonDetailsService;
 import org.apache.coyote.http11.AbstractHttp11JsseProtocol;
+import org.graalvm.nativeimage.c.function.CEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -60,5 +61,8 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
+    }
+    public int add(int a, int b){
+        return a+b;
     }
 }
